@@ -88,3 +88,22 @@ bst.inOrder(bst.root)
 const numbers = [1, 2, 3, 4, 5, 6];
 const result = sumOfEvenNumbers(numbers);
 console.log(result); // Output: 12
+
+
+var stack = [], node, ii;
+stack.push(root);
+
+while (stack.length > 0) {
+    node = stack.pop();
+    if (node.title == 'randomNode_1') {
+        // Found it!
+        return node;
+    } else if (node.children && node.children.length) {
+        for (ii = 0; ii < node.children.length; ii += 1) {
+            stack.push(node.children[ii]);
+        }
+    }
+}
+
+// Didn't find it. Return null.
+return null;
